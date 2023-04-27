@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone - AzaanUllah Khan</title>
+    <link rel="icon" href="./img/netflixlogo.0.0.1466448626-removebg-preview.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bebas Neue', cursive;
+            color: white;
+        }
+
+        body {
+            background: url(./img/Landing\ Page\ BG);
+            background-repeat: no-repeat;
+            background-size: 100% 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 50px;
+        }
+
+        .left img {
+            width: 170px;
+        }
+
+        .right button {
+            font-size: 16px;
+            background-color: rgb(229, 9, 20);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            width: 100px;
+            letter-spacing: 2px;
+        }
+
+        .heading {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .h {
+            width: 60%;
+            margin-top: 100px;
+        }
+
+        .h h1 {
+            font-weight: lighter;
+            line-height: 80px;
+            font-size: 90px;
+            text-align: center;
+        }
+
+        .h p {
+            text-align: center;
+            padding: 10px;
+            font-size: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .ready {
+            font-weight: lighter;
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        .ready p {
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        .search {
+            margin-top: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .searchBar {
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .searchBar input {
+            padding: 10px 10px 10px 20px;
+            width: 70%;
+            color: black;
+            font-size: 16px;
+            outline: none;
+            border: none;
+        }
+
+        .searchBar button {
+            font-size: 16px;
+            padding: 10px;
+            width: 25%;
+            background-color: rgb(229, 9, 20);
+            outline: none;
+            border: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+
+        .btn {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: none;
+        }
+
+        .btn button {
+            width: 50%;
+            background-color: white;
+            color: black;
+            outline: none;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .btn a {
+            color: black;
+        }
+
+        .btn button:nth-of-type(2) {
+            background-color: rgb(229, 9, 20);
+            color: white;
+        }
+        .btn button:nth-of-type(2) a{
+            color: white;
+        }
+
+        @media screen and (max-width: 745px) {
+            .h {
+                width: 90%;
+                text-align: left;
+            }
+
+            .h h1,
+            .h p {
+                text-align: left;
+            }
+
+            .ready {
+                display: none;
+            }
+
+            .searchBar {
+                width: 80%;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            .searchBar {
+                width: 90%;
+            }
+
+            nav button {
+                display: none;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            nav .left img {
+                width: 200px;
+            }
+
+            .h {
+                margin-top: 65px;
+            }
+
+            .h p {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 430px) {
+            .search {
+                display: none;
+            }
+
+            .btn {
+                display: flex;
+            }
+
+            .h h1 {
+                font-size: 65px;
+                line-height: 65px;
+            }
+
+            .h {
+                margin-top: 80px;
+            }
+
+            .h p {
+                display: block;
+                font-size: 16px;
+                color: aliceblue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="left">
+                <img src="./img/Netflix.png" alt="image">
+            </div>
+            <div class="right">
+                <button><a href="./signin.html">Sign In</a></button>
+            </div>
+        </nav>
+        <div class="heading">
+            <div class="h">
+                <h1>Unlimited movies, TV shows and more.</h1>
+                <p>All of Netflix, starting just at PKR 500</p>
+            </div>
+            <div class="ready">
+                <p>Ready to watch? Enter your email to create or restart your membership</p>
+            </div>
+        </div>
+        <div class="search">
+            <div class="searchBar">
+                <input type="text" placeholder="Enter your Name..">
+                <button><a href="./signin.html">Get Started =></a></button>
+            </div>
+        </div>
+        <div class="btn">
+            <button><a href="./signin.html">Sign In</a></button>
+            <button><a href="./idPage.html">Get Started</a></button>
+        </div>
+    </div>
+</body>
+
+</html>
