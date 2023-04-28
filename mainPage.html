@@ -16,6 +16,10 @@
             background-color: #444;
         }
 
+        ::-webkit-scrollbar-thumb {
+            background-color: #555;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -40,11 +44,16 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 50px;
+            padding: 10px 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: black;
+            z-index: 10;
         }
 
         .left img {
-            width: 170px;
+            width: 120px;
         }
 
         .right img {
@@ -146,7 +155,8 @@
         .ex1 div {
             position: relative;
         }
-        .first h1{
+
+        .first h1 {
             font-size: 20px;
             margin-bottom: 10px;
             font-family: Arial, Helvetica, sans-serif;
@@ -185,11 +195,124 @@
             background-color: rgba(97, 97, 97, 0.7);
             box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
         }
-        .copyright{
+
+        .copyright {
             display: flex;
             justify-content: center;
             padding: 10px 5px;
             background-color: rgba(229, 9, 27, 0.7);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* -------- */
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container .search {
+            transition: all 1s;
+            z-index: 4;
+            position: relative;
+            display: inline-block;
+            height: 30px;
+            width: 50px;
+            vertical-align: middle;
+            right: -55px;
+        }
+
+        .search-container .search:hover {
+            cursor: pointer;
+        }
+
+        .search-container .search::before {
+            content: "";
+            position: absolute;
+            top: 22px;
+            right: 0;
+            bottom: 0;
+            left: 10px;
+            width: 12px;
+            height: 2px;
+            background: #ccc;
+            transform: rotate(45deg);
+            transition: all .5s;
+        }
+
+        .search-container .search::after {
+            content: "";
+            position: absolute;
+            top: 8px;
+            right: 0;
+            bottom: 0;
+            left: 0px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            transition: all .5s;
+        }
+
+        .search-container input {
+            width: 50px;
+            height: 30px;
+            outline: none;
+            border-bottom: 1px solid #ccc;
+            color: #ccc;
+            padding: 0;
+            border-top: 0;
+            border-right: 0;
+            border-left: 0;
+            transition: all 1s;
+            opacity: 0;
+            z-index: 5;
+            font-weight: bolder;
+            letter-spacing: 0.1em;
+            box-sizing: border-box;
+        }
+
+        .search-container input:hover {
+            cursor: pointer;
+        }
+
+        .search-container.active input {
+            width: 300px;
+            opacity: 1;
+            cursor: text;
+            padding: 0 0 0 50px;
+        }
+
+        .search-container .close {
+            transition: all 1s;
+            z-index: 4;
+            position: relative;
+            display: inline-block;
+            height: 50px;
+            width: 50px;
+            vertical-align: middle;
+            right: 55px;
+            visibility: hidden;
+        }
+
+
+        .search-container input::placeholder {
+            color: #898989;
+            opacity: 0.5;
+            font-weight: bolder;
+        }
+
+        .search-container .input-box {
+            vertical-align: middle;
+            display: inline-block;
+        }
+        @media screen and (max-width:700px) {
+            .search-container{
+                display: none;
+            }
         }
     </style>
 </head>
@@ -200,8 +323,15 @@
             <div class="left">
                 <a href="./index.html"><img src="./img/Netflix.png" alt="image"></a>
             </div>
-            <div class="right">
-                <a href="./idPage.html"><img src="./img/green.jpg" alt="user"></a>
+                <div id="searchBox" class="search-container">
+                    <div class="search"></div>
+                    <div class="input-box">
+                        <input type="text" placeholder="Search...">
+                        <div class="close"></div>
+                    </div>
+                </div>
+                <div class="right">
+                    <a href="./idPage.html"><img src="./img/green.jpg" alt="user"></a>
             </div>
         </nav>
         <div class="movie">
@@ -317,8 +447,7 @@
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                 </div>
                 <div>
-                    <img
-                        src="https://www.joblo.com/wp-content/uploads/2023/04/insidious-the-red-door-featured.jpg">
+                    <img src="https://www.joblo.com/wp-content/uploads/2023/04/insidious-the-red-door-featured.jpg">
                     <button class="heart"><i class="fa fa-heart"></i></button>
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
 
@@ -334,26 +463,22 @@
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://www.coppershock.com/wp-content/uploads/2021/12/Hush-movie-poster.jpeg">
+                    <img src="https://www.coppershock.com/wp-content/uploads/2021/12/Hush-movie-poster.jpeg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/81186806.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/81186806.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/en/f/ff/The_Ritual_UK_poster.png">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/The_Ritual_UK_poster.png">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/en/0/0d/1922_%282017_film%29.png">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/1922_%282017_film%29.png">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
@@ -376,13 +501,13 @@
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/14546747.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/14546747.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTUyNzkwMzAxOF5BMl5BanBnXkFtZTgwMzc1OTk1NjE@._V1_.jpg">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BMTUyNzkwMzAxOF5BMl5BanBnXkFtZTgwMzc1OTk1NjE@._V1_.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
@@ -407,8 +532,7 @@
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/80189213.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80189213.jpg">
                     <button class="heart"><i class="fa fa-heart"></i></button>
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
 
@@ -419,19 +543,18 @@
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/1/1a/The_Little_Prince_%282015_film%29_poster.png">
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/en/1/1a/The_Little_Prince_%282015_film%29_poster.png">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/80094319.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80094319.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/81198527.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/81198527.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
@@ -448,20 +571,17 @@
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/70137742.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70137742.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/70273612.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70273612.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://www.tvguide.com/a/img/catalog/provider/1/2/1-6981633884.jpg">
+                    <img src="https://www.tvguide.com/a/img/catalog/provider/1/2/1-6981633884.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
@@ -472,17 +592,20 @@
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img src="https://m.media-amazon.com/images/M/MV5BNTI0ZjVhM2ItMmFkOS00ZmFiLTg4NGQtODJjNTZmMDYxMWMyXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BNTI0ZjVhM2ItMmFkOS00ZmFiLTg4NGQtODJjNTZmMDYxMWMyXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img src="https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@._V1_FMjpg_UX1000_.jpg">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@._V1_FMjpg_UX1000_.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMzQ2MTc0Mw@@._V1_FMjpg_UX1000_.jpg">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMzQ2MTc0Mw@@._V1_FMjpg_UX1000_.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
@@ -492,7 +615,8 @@
             <h1>Animated Movies</h1>
             <div class="ex1">
                 <div>
-                    <img src="https://m.media-amazon.com/images/M/MV5BMWYwOThjM2ItZGYxNy00NTQwLWFlZWEtM2MzM2Q5MmY3NDU5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BMWYwOThjM2ItZGYxNy00NTQwLWFlZWEtM2MzM2Q5MmY3NDU5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg">
                     <button class="heart"><i class="fa fa-heart"></i></button>
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                 </div>
@@ -509,32 +633,29 @@
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img src="https://m.media-amazon.com/images/M/MV5BMjdkZjNjNDItYzc4MC00NTkxLTk1MWEtY2UyZjY5MjUwNDNkXkEyXkFqcGdeQXVyMTA1OTcyNDQ4._V1_.jpg">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BMjdkZjNjNDItYzc4MC00NTkxLTk1MWEtY2UyZjY5MjUwNDNkXkEyXkFqcGdeQXVyMTA1OTcyNDQ4._V1_.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/80221640.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80221640.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/81198902.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/81198902.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/70120612.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70120612.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/70102569.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70102569.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
@@ -545,8 +666,7 @@
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/81021806.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/81021806.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
@@ -557,8 +677,7 @@
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img
-                        src="https://assets.nflxext.com/us/boxshots/hd1080/81044813.jpg">
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/81044813.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
@@ -568,12 +687,425 @@
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img src="https://m.media-amazon.com/images/M/MV5BNTU3MTI0NDE1M15BMl5BanBnXkFtZTgwMzU2ODI5NDE@._V1_.jpg">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BNTU3MTI0NDE1M15BMl5BanBnXkFtZTgwMzU2ODI5NDE@._V1_.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
                 <div>
-                    <img src="https://occ-0-869-586.1.nflxso.net/dnm/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABej_GPYjRZOcZuwuzCMhOSKl6j4NAhu3aT7DXiZ8UEGcCoxkzHlTMGFPSpx65qAaN35v9aHqFlXcItjfVeuSz-uvCa4O71R22hwp.jpg">
+                    <img
+                        src="https://occ-0-869-586.1.nflxso.net/dnm/api/v6/WNk1mr9x_Cd_2itp6pUM7-lXMJg/AAAABej_GPYjRZOcZuwuzCMhOSKl6j4NAhu3aT7DXiZ8UEGcCoxkzHlTMGFPSpx65qAaN35v9aHqFlXcItjfVeuSz-uvCa4O71R22hwp.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Crime Movies</h1>
+            <div class="ex1">
+                <div>
+                    <img src="https://i.redd.it/fummb847tgb81.jpg">
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70002022.jpg">
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70044689.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70020509.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70127227.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70064122.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70019012.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/902003.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60011660.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70060009.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60004086.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/383466.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60021234.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/1084379.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/1151721.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Comedy Movies</h1>
+            <div class="ex1">
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70113002.jpg">
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70184047.jpg">
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70208247.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70058023.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70093991.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70264796.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60034551.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70123542.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70097582.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60023650.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70003227.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/384406.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70043038.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60002777.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60000361.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Sci-Fi Movies</h1>
+            <div class="ex1">
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70131314.jpg">
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/20557937.jpg">
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80185760.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/81104905.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60024058.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80029196.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/1038926.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/1154386.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70274337.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70305903.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80117799.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80058399.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80144444.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70109892.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80025919.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Suspensful Movies</h1>
+            <div class="ex1">
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/879522.jpg">
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/26797528.jpg">
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/950149.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60021097.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/959008.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60022315.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60000397.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60010202.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-299-300.1.nflxso.net/art/e1722/f2eb69d367355430b0dd37882b43bd30856e1722.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70047095.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60024914.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60036242.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/60034800.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70095139.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/70273235.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Adventurous Movies</h1>
+            <div class="ex1">
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80082755.jpg">
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BNDJiZDliZDAtMjc5Yy00MzVhLThkY2MtNDYwNTQ2ZTM5MDcxXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_.jpg">
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img src="https://www.dvdsreleasedates.com/posters/800/P/Project-Power-2020-movie-poster.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BNzE2ZjQxNjEtNmI2ZS00ZmU0LTg4M2YtYzVhYmRiYWU0YzI1XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://www.newdvdreleasedates.com/images/posters/large/bird-box-2018.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BODU4MzM2MDAxMl5BMl5BanBnXkFtZTgwNDEzNjM0NzM@._V1_.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://www.newdvdreleasedates.com/images/posters/enola-holmes-2020.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BMzRlMTcwODMtZjhjZS00NWI1LThkMDUtOTAwNzM1ZmU3ZDExXkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://images.static-bluray.com/products/20/66198_2_large.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://www.newdvdreleasedates.com/images/posters/the-king-2019.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80064516.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://assets.nflxext.com/us/boxshots/hd1080/80104198.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BMzA5MjNjODEtOWYxYi00OTdmLTlhNTAtN2VhMTMxNWJjM2ZmXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://www.dvdsreleasedates.com/posters/800/T/The-Highwaymen-2019-movie-poster.jpg">
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img src="https://images.static-bluray.com/products/20/62059_1_large.jpg">
                     <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
                     <button class="heart"><i class="fa fa-heart"></i></button>
                 </div>
@@ -581,8 +1113,35 @@
         </div>
     </div>
     <div class="copyright">
-        All CopyRights Recieved - AzaanUllah Khan &copy;
+        All CopyRights Recieved - <a href="https://github.com/AzaanUllah-Khan" target="_blank">AzaanUllah Khan </a>
+        &copy;
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById("searchBox").addEventListener("click", function (event) {
+                arr = this.className.split(" ");
+                if (arr.indexOf("active") == -1) {
+                    this.className += " active";
+                }
+                this.getElementsByTagName("INPUT")[0].focus();
+            });
+
+            document.getElementById("searchBox").getElementsByClassName("search")[0].addEventListener("click", function (event) {
+                var parent = this.parentElement; //searchBox element;
+                var arr = parent.className.split(" ");
+                if (arr.indexOf("active") != -1) {
+                    var input = parent.getElementsByTagName("INPUT")[0];
+                    input.value = "";
+                    var classList = parent.className;
+                    classList = classList.replace(/\bactive\b/g, "").trim();
+                    parent.className = classList;
+                    event.preventDefault();
+                    event.stopPropagation();
+                    event.stopImmediatePropagation();
+                }
+            });
+        }, false);
+    </script>
 </body>
 
 </html>
